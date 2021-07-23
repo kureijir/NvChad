@@ -76,6 +76,10 @@ return packer.startup(
             end
         }
 
+        use "sheerun/vim-polyglot"
+        use "nathangrigg/vim-beancount"
+        use "styled-components/vim-styled-components"
+
         -- load compe in insert mode only
         use {
             "hrsh7th/nvim-compe",
@@ -245,5 +249,15 @@ return packer.startup(
             "kureijir/tmuxline.vim",
             cmd = {"Tmuxline", "TmuxlineSnapshot"}
         }
+
+        use {
+            "easymotion/vim-easymotion",
+            event = "VimEnter"
+        }
+
+        use "tpope/vim-surround"
+        use "tpope/vim-repeat"
+        use "tpope/vim-abolish"
+        use "tpope/vim-endwise"
     end
 )
