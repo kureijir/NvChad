@@ -10,29 +10,33 @@ local opt = {}
 
 -- dont copy any deleted text , this is disabled by default so uncomment the below mappings if you want them
 --[[ remove this line
-
 map("n", "dd", [=[ "_dd ]=], opt)
 map("v", "dd", [=[ "_dd ]=], opt)
 map("v", "x", [=[ "_x ]=], opt)
-
  this line too ]]
 --
 
 -- escape with 'jk' mapping
+--[[ remove this line
 vim.api.nvim_set_keymap("i", "jk", "<esc>", {})
 vim.api.nvim_set_keymap("v", "jk", "<esc>", {})
 vim.api.nvim_set_keymap("t", "jk", "<esc>", {})
+ this line too ]]
+--
+
+-- map CTRL-6 to CTRL-^
+map("n", "<C-6>", "<C-^>")
 
 -- Don't copy the replaced text after pasting in visual mode
 map("v", "p", '"_dP', opt)
 
 -- OPEN TERMINALS --
-map("n", "<C-l>", [[<Cmd> vnew +terminal | setlocal nobuflisted <CR>]], opt) -- term over right
-map("n", "<C-x>", [[<Cmd> 10new +terminal | setlocal nobuflisted <CR>]], opt) --  term bottom
+--map("n", "<C-l>", [[<Cmd> vnew +terminal | setlocal nobuflisted <CR>]], opt) -- term over right
+--map("n", "<C-x>", [[<Cmd> 10new +terminal | setlocal nobuflisted <CR>]], opt) --  term bottom
 map("n", "<C-t>t", [[<Cmd> terminal <CR>]], opt) -- term buffer
 
 -- copy whole file content
-map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
+--map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
 
 -- toggle numbers
 map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
@@ -42,7 +46,7 @@ map("n", "<leader>zz", ":TZAtaraxis<CR>", opt)
 map("n", "<leader>zm", ":TZMinimalist<CR>", opt)
 map("n", "<leader>zf", ":TZFocus<CR>", opt)
 
-map("n", "<C-s>", ":w <CR>", opt)
+--map("n", "<C-s>", ":w <CR>", opt)
 
 -- Commenter Keybinding
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
@@ -110,7 +114,7 @@ map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("i", "<CR>", "v:lua.completions()", {expr = true})
 
 -- nvimtree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+map("n", "<F12>", ":NvimTreeToggle<CR>", opt)
 
 -- format code
 map("n", "<Leader>fm", [[<Cmd> Neoformat<CR>]], opt)
@@ -120,8 +124,8 @@ map("n", "<Leader>fw", [[<Cmd> Telescope live_grep<CR>]], opt)
 map("n", "<Leader>db", [[<Cmd> Dashboard<CR>]], opt)
 map("n", "<Leader>fn", [[<Cmd> DashboardNewFile<CR>]], opt)
 map("n", "<Leader>bm", [[<Cmd> DashboardJumpMarks<CR>]], opt)
-map("n", "<C-s>l", [[<Cmd> SessionLoad<CR>]], opt)
-map("n", "<C-s>s", [[<Cmd> SessionSave<CR>]], opt)
+map("n", "<Leader>sl", [[<Cmd> SessionLoad<CR>]], opt)
+map("n", "<Leader>ss", [[<Cmd> SessionSave<CR>]], opt)
 
 -- Telescope
 map("n", "<Leader>gt", [[<Cmd> Telescope git_status <CR>]], opt)
@@ -135,11 +139,11 @@ map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)
 -- bufferline tab stuff
 map("n", "<S-t>", ":enew<CR>", opt) -- new buffer
 map("n", "<C-t>b", ":tabnew<CR>", opt) -- new tab
-map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
+map("n", "<S-x>", ":bd<CR>", opt) -- close tab
 
 -- move between tabs
-map("n", "<TAB>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
-map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
+--map("n", "<TAB>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
+--map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
 
 -- use ESC to turn off search highlighting
 map("n", "<Esc>", ":noh<CR>", opt)
