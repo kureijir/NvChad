@@ -240,5 +240,10 @@ return packer.startup(
                 require("plugins.others").blankline()
             end
         }
+
+        use {
+            "kureijir/tmuxline.vim",
+            cmd = {"Tmuxline", "TmuxlineSnapshot"}
+        }
     end
 )
