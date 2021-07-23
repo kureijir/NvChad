@@ -30,6 +30,14 @@ M.neoscroll = function()
     )
 end
 
+M.lirgitstatus = function()
+    pcall(
+        function()
+            require("lir-git-status.nvim").setup()
+        end
+    )
+end
+
 M.blankline = function()
     vim.g.indentLine_enabled = 1
     vim.g.indent_blankline_char = "▏"

@@ -119,6 +119,22 @@ return packer.startup(
         }
 
         use {
+            "tamago324/lir.nvim",
+            after = "plenary.nvim",
+            config = function()
+                require "plugins.lir"
+            end
+        }
+
+        use {
+            "tamago324/lir-git-status.nvim",
+            after = "lir.nvim",
+            setup = function()
+                require("plugins.others").lirgitstatus()
+            end
+        }
+
+        use {
             "kyazdani42/nvim-web-devicons",
             after = "nvim-base16.lua",
             config = function()
